@@ -1,0 +1,10 @@
+{
+  "name": "rest-api-url-builder",
+  "version": "1.0.0",
+  "description": "Build URLs for REST API without any unnecessary complexity. You can bind named parameters as well as query parameters with just few lines of code",
+  "main": "index.js",
+  "repository": "https://github.com/Flyrell/rest-api-url-builder.git",
+  "author": "Dawid Zbiński <dawid@zbinski.eu>",
+  "license": "MIT",
+  "private": false
+}
