@@ -2,9 +2,36 @@
   "name": "rest-api-url-builder",
   "version": "1.0.0",
   "description": "Build URLs for REST API without any unnecessary complexity. You can bind named parameters as well as query parameters with just few lines of code",
-  "main": "index.js",
+  "keywords": [
+    "url builder",
+    "rest url",
+    "rest api",
+    "rest api url",
+    "rest builder"
+  ],
+  "test": "jest",
+  "main": "dist/index.js",
   "repository": "https://github.com/Flyrell/rest-api-url-builder.git",
   "author": "Dawid Zbiński <dawid@zbinski.eu>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "build": "npx jest && webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@types/jest": "^23.3.12",
+    "@types/url-parse": "^1.4.2",
+    "babel-loader": "^8.0.5",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "url-parse": "^1.4.4"
+  }
 }
