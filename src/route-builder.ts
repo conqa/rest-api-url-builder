@@ -1,4 +1,5 @@
-import * as UrlParse from "url-parse";
+import UrlParse from "url-parse";
+import getPath from "./get-path";
 
 class RouteBuilder {
 
@@ -8,7 +9,7 @@ class RouteBuilder {
 
     constructor (name: string, path: string, baseURL?: string) {
         this.name = name;
-        this.url = new UrlParse(path, baseURL, () => ({}));
+        this.url = new UrlParse(getPath(path, baseURL), baseURL, () => ({}));
     }
 
     setQueryParameter (name: string, value: any) {

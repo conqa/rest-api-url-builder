@@ -101,6 +101,38 @@ describe('correct route building without parameters', () => {
         expect(urlBuilder.build('route1').get()).toEqual('https://www.example.com/homepage');
         expect(urlBuilder.build('route1trailing').get()).toEqual('https://www.example.com/homepage/');
     });
+
+    test('from routeConfig with global baseURL that includes path', () => {
+        routes = {
+            'route1': {
+                path: '/homepage'
+            },
+            'route1trailing': {
+                path: '/homepage/'
+            }
+        };
+        const urlBuilder = new UrlBuilder(routes, {
+            baseURL: 'https://www.example.com/path'
+        });
+        expect(urlBuilder.build('route1').get()).toEqual('https://www.example.com/path/homepage');
+        expect(urlBuilder.build('route1trailing').get()).toEqual('https://www.example.com/path/homepage/');
+    });
+
+    test('from routeConfig with global baseURL that includes path with trailing /', () => {
+        routes = {
+            'route1': {
+                path: '/homepage'
+            },
+            'route1trailing': {
+                path: '/homepage/'
+            }
+        };
+        const urlBuilder = new UrlBuilder(routes, {
+            baseURL: 'https://www.example.com/path/'
+        });
+        expect(urlBuilder.build('route1').get()).toEqual('https://www.example.com/path/homepage');
+        expect(urlBuilder.build('route1trailing').get()).toEqual('https://www.example.com/path/homepage/');
+    });
 });
 
 
