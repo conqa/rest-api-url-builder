@@ -6,10 +6,17 @@ const defaultOptions: UrlBuilderOptions = {
 };
 
 function mergeConfig (options1: UrlBuilderOptions, options2: UrlBuilderOptions): UrlBuilderOptions {
-    for (const optionName in options2) {
-        options1[optionName] = options2[optionName];
+    const config: UrlBuilderOptions = [];
+
+    for (const optionName in options1) {
+        config[optionName] = options1[optionName];
     }
-    return options1;
+
+    for (const optionName in options2) {
+        config[optionName] = options2[optionName];
+    }
+
+    return config;
 }
 
 class UrlBuilder {

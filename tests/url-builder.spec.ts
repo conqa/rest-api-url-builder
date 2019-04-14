@@ -164,3 +164,17 @@ describe('correct parameters binding', () => {
         expect(url).toEqual('https://www.example.com/homepage?param[]=2&param[]=3')
     });
 });
+
+describe('config', () => {
+    test('multiple instances do not share config', () => {
+        routes = { 'route1': '/homepage' };
+        const urlBuilder1 = new UrlBuilder(routes, { baseURL: 'https://www.example.com' });
+        const urlBuilder2 = new UrlBuilder(routes );
+    
+        const url1 = urlBuilder1.build('route1');
+        const url2 = urlBuilder2.build('route1');
+
+        expect(url1.get()).not.toEqual(url2.get());
+        expect(url2.get()).toEqual('http://localhost/homepage');
+    });
+});
