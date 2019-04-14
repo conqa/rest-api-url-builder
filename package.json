@@ -1,6 +1,6 @@
 {
   "name": "rest-api-url-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": "https://github.com/Flyrell/rest-api-url-builder.git",
   "author": "Dawid Zbiński <dawid@zbinski.eu>",
   "license": "MIT",
@@ -13,18 +13,18 @@
     "rest api url",
     "rest builder"
   ],
-
   "test": "jest",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
     "test": "npx jest"
   },
-
   "devDependencies": {
     "@types/jest": "^23.3.12",
     "@types/url-parse": "^1.4.2",
