@@ -1,4 +1,4 @@
-import * as UrlParse from "url-parse";
+import UrlParse from "url-parse";
 declare class RouteBuilder {
     name: string;
     url: UrlParse;
