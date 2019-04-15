@@ -1,12 +1,29 @@
 'use strict';
 
-var UrlParse = require('url-parse');
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var UrlParse = _interopDefault(require('url-parse'));
+
+var getPath = function (path, baseURL) {
+    if (baseURL) {
+        var urlParse = new UrlParse(baseURL);
+        var pathname = urlParse.pathname;
+        if (pathname !== '') {
+            var length_1 = pathname.length;
+            if (pathname[length_1 - 1] === '/') {
+                return pathname.substring(0, length_1 - 1) + path;
+            }
+            return pathname + path;
+        }
+    }
+    return path;
+};
 
 var RouteBuilder = /** @class */ (function () {
     function RouteBuilder(name, path, baseURL) {
         this.arrayParameterNames = [];
         this.name = name;
-        this.url = new UrlParse(path, baseURL, function () { return ({}); });
+        this.url = new UrlParse(getPath(path, baseURL), baseURL, function () { return ({}); });
     }
     RouteBuilder.prototype.setQueryParameter = function (name, value) {
         var _this = this;
@@ -49,10 +66,14 @@ var defaultOptions = {
     baseURL: ''
 };
 function mergeConfig(options1, options2) {
-    for (var optionName in options2) {
-        options1[optionName] = options2[optionName];
+    var config = [];
+    for (var optionName in options1) {
+        config[optionName] = options1[optionName];
     }
-    return options1;
+    for (var optionName in options2) {
+        config[optionName] = options2[optionName];
+    }
+    return config;
 }
 var UrlBuilder = /** @class */ (function () {
     function UrlBuilder(routes, options) {
