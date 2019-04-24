@@ -118,6 +118,22 @@ describe('correct route building without parameters', () => {
         expect(urlBuilder.build('route1trailing').get()).toEqual('https://www.example.com/path/homepage/');
     });
 
+    test('from routeConfig with global baseURL that includes path and port', () => {
+        routes = {
+            'route1': {
+                path: '/homepage'
+            },
+            'route1trailing': {
+                path: '/homepage/'
+            }
+        };
+        const urlBuilder = new UrlBuilder(routes, {
+            baseURL: 'https://www.example.com:8080/path'
+        });
+        expect(urlBuilder.build('route1').get()).toEqual('https://www.example.com:8080/path/homepage');
+        expect(urlBuilder.build('route1trailing').get()).toEqual('https://www.example.com:8080/path/homepage/');
+    });
+
     test('from routeConfig with global baseURL that includes path with trailing /', () => {
         routes = {
             'route1': {
@@ -202,7 +218,7 @@ describe('config', () => {
         routes = { 'route1': '/homepage' };
         const urlBuilder1 = new UrlBuilder(routes, { baseURL: 'https://www.example.com' });
         const urlBuilder2 = new UrlBuilder(routes );
-    
+
         const url1 = urlBuilder1.build('route1');
         const url2 = urlBuilder2.build('route1');
 

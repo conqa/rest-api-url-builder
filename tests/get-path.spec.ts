@@ -35,7 +35,7 @@ describe('getPath with baseURL', () => {
     });
 
     test('it returns the path when baseURL includes a path', () => {
-        const path = '/path'
+        const path = '/path';
         const expected = '/foo/path';
         const actual = getPath(path, 'https://example.com/foo');
 
@@ -43,7 +43,7 @@ describe('getPath with baseURL', () => {
     });
 
     test('it returns the path when baseURL includes a path with a trailing /', () => {
-        const path = '/path'
+        const path = '/path';
         const expected = '/foo/path';
         const actual = getPath(path, 'https://example.com/foo/');
 
