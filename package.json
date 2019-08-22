@@ -1,6 +1,6 @@
 {
   "name": "@conqa/rest-api-url-builder",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "repository": "https://github.com/Flyrell/rest-api-url-builder.git",
   "author": "Dawid Zbiński <dawid@zbinski.eu>",
   "license": "MIT",
