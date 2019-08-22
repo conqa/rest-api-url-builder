@@ -5,9 +5,9 @@ var getPath = function (path, baseURL) {
         var urlParse = new UrlParse(baseURL);
         var pathname = urlParse.pathname;
         if (pathname !== '') {
-            var length_1 = pathname.length;
-            if (pathname[length_1 - 1] === '/') {
-                return pathname.substring(0, length_1 - 1) + path;
+            var length = pathname.length;
+            if (pathname[length - 1] === '/') {
+                return pathname.substring(0, length - 1) + path;
             }
             return pathname + path;
         }
@@ -86,7 +86,7 @@ var UrlBuilder = /** @class */ (function () {
             route = { path: route };
         }
         var baseURL = route.baseURL ? route.baseURL : this.options.baseURL;
-        return new RouteBuilder(name, route.path, baseURL);
+        return new RouteBuilder(routeName, route.path, baseURL);
     };
     return UrlBuilder;
 }());
