@@ -10,9 +10,9 @@ Size: 6.55 KiB minified, 3.05 KiB gzipped
 Using [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/en/docs/install):
 
 ```bash
-npm install rest-api-url-builder
+npm install @conqa/rest-api-url-builder
 # or
-yarn add rest-api-url-builder
+yarn add @conqa/rest-api-url-builder
 ```
 
 ## Syntax
@@ -41,7 +41,7 @@ The `options` object may contain one or more [available options](#available-opti
 
 #### Routes with absolute URLs
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const routes = {
     'homepage': 'https://www.example.com/homepage',
@@ -56,7 +56,7 @@ const route = urlBuilder.build('homepage').get(); // https://www.example.com/hom
 
 #### Routes with relative URLs & base URL
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const options = {
     'baseURL': 'https://www.example.com'
@@ -75,7 +75,7 @@ const route = urlBuilder.build('homepage').get(); // https://www.example.com/hom
 
 #### Rewriting baseURL for specific URLs
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const options = {
     'baseURL': 'https://www.example.com'
@@ -98,7 +98,7 @@ const aboutUsURL  = urlBuilder.build('about-us').get(); // https://www.other.com
 
 #### Binding named parameters
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const routes = {
     'product': 'https://www.example.com/product/:id'
@@ -113,7 +113,7 @@ console.log(productURL); // https://www.example.com/product/1010
 
 #### Binding query parameters
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const routes = {
     'search': 'https://www.example.com/search'
@@ -128,7 +128,7 @@ console.log(searchURL); // https://www.example.com/search?sort=price
 
 #### Binding array query parameters
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const routes = {
     'search': 'https://www.example.com/search'
@@ -143,7 +143,7 @@ console.log(searchURL); // https://www.example.com/search?filters[]=value1&filte
 
 #### Chaining parameters binding
 ```javascript
-import UrlBuilder from 'rest-api-url-builder';
+import UrlBuilder from '@conqa/rest-api-url-builder';
 
 const routes = {
     'search': 'https://www.example.com/search/:category'
