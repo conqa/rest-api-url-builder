@@ -37,6 +37,6 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "url-parse": "^1.4.4"
+    "url-parse": "^1.5.9"
   }
 }
